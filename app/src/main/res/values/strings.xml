@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Googlemaps2</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="vista1">Vista 1</string>
+    <string name="vista2">Vista 2</string>
+    <string name="vista3">vista 3</string>
+    <string name="vista4">vista 4</string>
+    <string name="vista5">vista 5</string>
+</resources>
