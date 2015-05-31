@@ -21,8 +21,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MainActivity extends ActionBarActivity implements GoogleMap.OnMapClickListener {
-
+//variable contenedora de la ubicacion destino
     private final LatLng casa = new LatLng(18.366186, -100.661951);
+    
     private GoogleMap googlemap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,21 +51,21 @@ public class MainActivity extends ActionBarActivity implements GoogleMap.OnMapCl
         googlemap.setOnMapClickListener(this);
 
     }
-
+//mueve la camara hacia las coordenadas indicadas
     public void moveCamera(View view) {
         CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(18.366186, -100.661951)).zoom(15).build();
         googlemap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
-
+//animacion de la camara al acercarse a un punto
     public void animateCamera(View view) {
         if (googlemap.getMyLocation()!= null)
             googlemap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(googlemap.getMyLocation().getLatitude(),googlemap.getMyLocation().getLongitude()),15));
     }
-
+ //permite agregar marcadores
     public void addMarker(View view) {
         googlemap.addMarker(new MarkerOptions().position(new LatLng(googlemap.getCameraPosition().target.latitude, googlemap.getCameraPosition().target.longitude)));
     }
-
+   
     @Override
     public void onMapClick(LatLng puntoPulsado) {
         googlemap.addMarker(new MarkerOptions().position(puntoPulsado).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)));
@@ -77,6 +78,7 @@ public class MainActivity extends ActionBarActivity implements GoogleMap.OnMapCl
         return true;
     }
 
+//menu para cambiar la vista del mapa
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
